@@ -13,6 +13,8 @@ The 3 priorities that we provide you are:
 ### Acceptance Criteria
 
 1. Messages should be rendered in a table-like structure. The newest messages should appear at the top of their respective columns.
+2. Provide test coverage of the components. 
+3. Ensure UI Matches the image
 
 Note: The example design below.
 
@@ -35,7 +37,6 @@ Note: The example design below.
 
 ### Bonus Points and Nice to Have
 --------------
-1. Provide test coverage of the components. 
-2. Can you convert these to functional components rather than class based components? 
+Can you convert these to functional components rather than class based components? 
 
 *** Applicants are provided this challenge with no expectation on deadline. Please take the time you need to complete the challenge to the best of your ability. ***
