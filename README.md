@@ -18,7 +18,7 @@ The 3 priorities that we provide you are:
 
 Note: The example design below.
 
-![Example Design](https://storage.googleapis.com/nuffsaid-public/grid.png)
+![Example Design](https://github.com/helpdotcom/react-coding-challenge/raw/master/grid.png)
 
 
 2. The messages should be color coded depending on the priority of the message. The appropriate color per priority is:
