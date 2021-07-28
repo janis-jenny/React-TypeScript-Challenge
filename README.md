@@ -16,7 +16,9 @@ The 3 priorities that we provide you are:
 2. Provide test coverage of the components. 
 3. Ensure UI Matches the image
 
-Note: The example design below.
+### Note
+
+1. The example design below.
 
 ![Example Design](https://github.com/helpdotcom/react-coding-challenge/raw/master/grid.png)
 
@@ -32,11 +34,9 @@ Note: The example design below.
 5. A user should be able to clear a specific message in a specific column
 6. A user should be able to start and stop incoming messages. By default the messages should be running and displaying on the grid. The start/stop button should update depending on the state of the feed.
 7. A user should see a count of specific messages in each column
-8. Use material-ui components and JSS styles.
+8. Use material-ui components and JSS styles. Preferrably styled-components
 9. Test your application to the degree that you feel comfortable with. No specific testing frameworks are required.
-
-### Bonus Points and Nice to Have
---------------
-Can you convert these to functional components rather than class based components? 
+10. Use functional components. If possible, change MessageList to functional component
+11. Improve code structure. Your implementation should be more like how you do it for any production grade application development
 
 *** Applicants are provided this challenge with no expectation on deadline. Please take the time you need to complete the challenge to the best of your ability. ***

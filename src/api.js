@@ -1,11 +1,10 @@
-import Chance from 'chance'
-import lodash from 'lodash'
+import random from 'lodash/random';
+import faker from 'faker';
 
-class MessageGenerator {
+export default class MessageGenerator {
   constructor(options) {
     this.messageCallback = options.messageCallback
     this.stopGeneration = false
-    this.chance = new Chance()
   }
 
   stop() {
@@ -28,9 +27,9 @@ class MessageGenerator {
     if (this.stopGeneration) {
       return
     }
-    const message = this.chance.string()
-    const priority = lodash.random(1, 3)
-    const nextInMS = lodash.random(500, 3000)
+    const message = faker.lorem.sentence();
+    const priority = random(1, 3)
+    const nextInMS = random(500, 3000)
     this.messageCallback({
       message,
       priority,
@@ -40,5 +39,3 @@ class MessageGenerator {
     }, nextInMS)
   }
 }
-
-export default MessageGenerator
