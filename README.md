@@ -38,5 +38,6 @@ The 3 priorities that we provide you are:
 9. Test your application to the degree that you feel comfortable with. No specific testing frameworks are required.
 10. Use functional components. If possible, change MessageList to functional component
 11. Improve code structure. Your implementation should be more like how you do it for any production grade application development
+12. Please submit your code either via Github or Gitlab
 
 ***Applicants are provided this challenge with no expectation on deadline. Please take the time you need to complete the challenge to the best of your ability.***
