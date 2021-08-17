@@ -35,7 +35,7 @@ The 3 priorities that we provide you are:
 6. A user should be able to start and stop incoming messages. By default the messages should be running and displaying on the grid. The start/stop button should update depending on the state of the feed.
 7. A user should see a count of specific messages in each column
 8. Use material-ui components and JSS styles. Preferrably styled-components
-9. Test your application to the degree that you feel comfortable with. No specific testing frameworks are required.
+9. Write unit test. `jest` is already included in the project
 10. Use functional components. If possible, change MessageList to functional component
 11. Improve code structure. Your implementation should be more like how you do it for any production grade application development
 12. Please submit your code either via Github or Gitlab
