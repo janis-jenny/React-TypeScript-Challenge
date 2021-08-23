@@ -40,5 +40,6 @@ The 3 priorities that we provide you are:
 11. Improve code structure. Your implementation should be more like how you do it for any production grade application development
 12. Please submit your code either via Github or Gitlab
 13. Use React context API and hooks to showcase your understanding of these React features
+14. Pay attention to performance of your page rendering
 
 ***Applicants are provided this challenge with no expectation on deadline. Please take the time you need to complete the challenge to the best of your ability.***
