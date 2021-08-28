@@ -35,9 +35,12 @@ The 3 priorities that we provide you are:
 6. A user should be able to start and stop incoming messages. By default the messages should be running and displaying on the grid. The start/stop button should update depending on the state of the feed.
 7. A user should see a count of specific messages in each column
 8. Use material-ui components and styled-component styles
-9. Write meaninful and useful unit tests
-10. Use functional components and Context API
+9. Write meaninful and useful unit tests. `jest` is already included in the project
+10. Use functional components
 11. Improve code structure. Your implementation should be more like how you do it for any production grade application development
 12. Define Typescript types where necessary
+13. Please submit your code either via Github or Gitlab
+14. Use React context API and hooks to showcase your understanding of these React features
+15. Pay attention to performance of your page rendering
 
-*** Applicants are provided this challenge with no expectation on deadline. Please take the time you need to complete the challenge to the best of your ability. ***
+***Applicants are provided this challenge with no expectation on deadline. Please take the time you need to complete the challenge to the best of your ability.***
