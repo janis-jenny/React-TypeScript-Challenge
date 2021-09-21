@@ -38,7 +38,7 @@ const App: React.FC<{}> = () => {
     <div className="row">
       <div className="col">
         <ul className="list-group">
-          <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Error Type 1</li>
+          <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Error Type 1 <span>Count: {errorMessages.length}</span></li>
           {errorMessages?.map?.(msg => <li key={msg?.message} className="list-group-item d-flex justify-content-between align-items-center bg-danger">
             {msg?.message}
           </li>
@@ -47,7 +47,7 @@ const App: React.FC<{}> = () => {
       </div>
       <div className="col">
         <ul className="list-group">
-          <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Warning Type 2</li>
+          <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Warning Type 2 <span>Count: {warningMessages.length}</span></li>
           {warningMessages?.map?.(msg => <li key={msg?.message} className="list-group-item d-flex justify-content-between align-items-center bg-warning">
             {msg?.message}
           </li>
@@ -56,7 +56,7 @@ const App: React.FC<{}> = () => {
       </div>
       <div className="col">
         <ul className="list-group">
-          <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Info Type 3</li>
+          <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Info Type 3 <span>Count: {infoMessages.length}</span></li>
           {infoMessages?.map?.(msg => <li key={msg?.message} className="list-group-item d-flex justify-content-between align-items-center bg-success">
             {msg?.message}
           </li>
