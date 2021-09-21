@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useEffect } from 'react';
 import generateMessage, { Message } from './Api';
+import SnackbarMessage from './Snackbar';
 
 const App: React.FC<{}> = () => {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -33,6 +34,13 @@ const App: React.FC<{}> = () => {
     const msgs = messages;
     if (msgs.length > 0) {
       setMessages(msgs.filter((msg) => msg.id !== id));
+    }
+
+    const array = [...messages]; // make a separate copy of the array
+    var index = array.indexOf(e.target.value)
+    if (index !== -1) {
+      array.splice(index, 1);
+      setMessages({messages: array});
     }
   }; */
 
@@ -80,6 +88,9 @@ const App: React.FC<{}> = () => {
         </ul>
       </div>
     </div>
+    {
+      errorMessages && <SnackbarMessage message={errorMessages} ></SnackbarMessage>
+    }
     </section> 
   );
 }
