@@ -1,3 +1,9 @@
+:root {
+  --color1: #F56236;
+  --color2: #FCE788;
+  --color3: #88FCA3;
+}
+
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -13,6 +19,14 @@ body {
   letter-spacing: 0.0125em;
 }
 
-.list-msg {
-  width: 30%;
+.error-list {
+  background-color: var(--color1);
+}
+
+.warn-list {
+  background-color: var(--color2);
+}
+
+.info-list {
+  background-color: var(--color3);
 }
