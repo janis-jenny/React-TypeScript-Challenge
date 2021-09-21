@@ -23,15 +23,16 @@ const App: React.FC<{}> = () => {
   console.log(errorMessages);
   return (
     <div>
-      <ul>
+
+      <ul className="list-group list-msg">
+        <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Error Type 1</li>
       {errorMessages?.map?.(msg =>
-        <li key={msg?.message}>
+        <li key={msg?.message} className="list-group-item d-flex justify-content-between align-items-center bg-danger">
           {msg?.message}
         </li>
       )}
       </ul>
-    </div>
-
+    </div> 
   );
 }
 
