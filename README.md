@@ -19,7 +19,7 @@
 
 
 
-## 👩🏼‍💻 About People of Star Wars
+## 👩🏼‍💻 About React TypeScript Challenge
 
 ![screenshot](./docs/screenshot.jpg)
 
