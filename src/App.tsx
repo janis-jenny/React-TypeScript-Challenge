@@ -2,17 +2,21 @@ import React, { useMemo, useState } from 'react';
 import { useEffect } from 'react';
 import generateMessage, { Message } from './Api';
 import ClearButton from './ClearButton';
+import PlayButton from './PlayButton';
 import SnackbarMessage from './Snackbar';
 
 const App: React.FC<{}> = () => {
   const [messages, setMessages] = useState<Message[]>([]);
+  const [paused, setPaused] = useState<boolean>(false);
 
   useEffect(() => {
+    if (!paused) {
       const cleanUp = generateMessage((message: Message) => {
         setMessages(oldMessages => [...oldMessages, message]);
       });
       return cleanUp;
-  }, [setMessages]);
+    }
+  }, [setMessages, paused]);
  
   const errorMessages = useMemo(
     () =>
@@ -32,22 +36,26 @@ const App: React.FC<{}> = () => {
     [messages]
   );
 
-  
   const handleRemove = (id: number) => {
     const msgs = messages;
     if (msgs.length > 0) {
       setMessages(msgs.filter((msg) => msg.id !== id));
     }
   };
-  
+
   const clear = () => {
     setMessages([])
+  }
+
+  const toggleBtn = () => {
+    setPaused(!paused)
   }
 
   return (
     <>
       <header>
         <ClearButton clear={clear} />
+        <PlayButton toggleBtn={toggleBtn} paused={paused} />
       </header>
       <section className="container">
         <div className="row">
