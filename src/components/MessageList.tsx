@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { useEffect } from 'react';
-import generateMessage, { Message } from './Api';
+import generateMessage, { Message } from '../Api';
 import ClearButton from './ClearButton';
 import PlayButton from './PlayButton';
 import SnackbarMessage from './Snackbar';
@@ -12,7 +12,7 @@ const Header = styled.section`
   justify-content: center;
 `;
 
-const App: React.FC<{}> = () => {
+const MessageList: React.FC<{}> = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [paused, setPaused] = useState<boolean>(false);
 
@@ -102,4 +102,4 @@ const App: React.FC<{}> = () => {
   );
 }
 
-export default App;
+export default MessageList;
