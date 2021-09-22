@@ -4,6 +4,13 @@ import generateMessage, { Message } from './Api';
 import ClearButton from './ClearButton';
 import PlayButton from './PlayButton';
 import SnackbarMessage from './Snackbar';
+import styled from 'styled-components'
+
+const Header = styled.section`
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+`;
 
 const App: React.FC<{}> = () => {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -53,42 +60,42 @@ const App: React.FC<{}> = () => {
 
   return (
     <>
-      <header>
+      <Header>
         <ClearButton clear={clear} />
         <PlayButton toggleBtn={toggleBtn} paused={paused} />
-      </header>
+      </Header>
       <section className="container">
         <div className="row">
           <div className="col">
             <ul className="list-group">
-              <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Error Type 1 <span>Count: {errorMessages.length}</span></li>
+              <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true"><span className="px-5">Error Type 1 </span><span className="px-4">Count: {errorMessages.length}</span></li>
               {errorMessages?.sort((a, b) => a > b ? 1:-1).map?.((msg) => <li key={msg?.message} className="error-list list-group-item d-flex justify-content-between align-items-center">
-                {msg?.message} <button type="button" onClick={() => handleRemove(msg?.id)}>Clear</button>
+                {msg?.message} <button type="button" onClick={() => handleRemove(msg?.id)} className="error-list border-0 fw-bold">Clear</button>
               </li>
               )}
             </ul>
           </div>
           <div className="col">
             <ul className="list-group">
-              <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Warning Type 2 <span>Count: {warningMessages.length}</span></li>
+              <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true"><span className="px-5">Warning Type 2 </span><span className="px-4">Count: {warningMessages.length}</span></li>
               {warningMessages?.sort((a, b) => a > b ? 1:-1).map?.(msg => <li key={msg?.message} className="warn-list list-group-item d-flex justify-content-between align-items-center">
-                {msg?.message} <button type="button" onClick={() => handleRemove(msg?.id)}>Clear</button>
+                {msg?.message} <button type="button" onClick={() => handleRemove(msg?.id)} className="warn-list border-0 fw-bold">Clear</button>
               </li>
               )}
             </ul>
           </div>
           <div className="col">
             <ul className="list-group">
-              <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Info Type 3 <span>Count: {infoMessages.length}</span></li>
+              <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true"><span className="px-5">Info Type 3 </span><span className="px-4">Count: {infoMessages.length}</span></li>
               {infoMessages?.sort((a, b) => a > b ? 1:-1).map?.(msg => <li key={msg?.message} className="info-list list-group-item d-flex justify-content-between align-items-center">
-                {msg?.message} <button type="button" onClick={() => handleRemove(msg?.id)}>Clear</button>
+                {msg?.message} <button type="button" onClick={() => handleRemove(msg?.id)} className="info-list border-0 fw-bold">Clear</button>
               </li>
               )}
             </ul>
           </div>
         </div>
         {
-        errorMessages && <SnackbarMessage message={errorMessages.map(({message}) => message )} />
+         <SnackbarMessage message={errorMessages.map(({message}) => message )} />
         }
       </section> 
     </>

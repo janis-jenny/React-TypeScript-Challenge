@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 import React, { useEffect, useState } from 'react';
 import { Snackbar } from '@material-ui/core';
 import Alert from '@mui/material/Alert/Alert';
@@ -23,13 +22,11 @@ const SnackbarMessage: React.FC<IProps> = (props) => {
   }
 
   return (
-    <div>
-      <Snackbar open={open} autoHideDuration={2000} onClose={() => handleClose("click") }>
-        <Alert onClose={() => handleClose("click")} severity="error" sx={{ width: '100%' }}>
-          {message}
-        </Alert>
-      </Snackbar>
-    </div>
+    <Snackbar open={open} autoHideDuration={2000} onClose={() => handleClose("click") }>
+      <Alert onClose={() => handleClose("click")} severity="error" sx={{ width: '100%' }}>
+        {message}
+      </Alert>
+    </Snackbar>
   )
 }
 
