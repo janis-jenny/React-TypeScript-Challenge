@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import MessageList from './components/MessageList';
 import reportWebVitals from './reportWebVitals';
 import 'bootswatch/dist/minty/bootstrap.min.css';
-import './index.css';
+import './style/index.css';
 
 ReactDOM.render(
   <React.StrictMode>
