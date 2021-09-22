@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ClearButton: React.FC<{clear: () => void }> = ({clear}) => {
+const ClearButton: React.FC<{clear: () => void}> = ({clear}) => {
   return (
     <button onClick={clear}>Clear</button>
   )

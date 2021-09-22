@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { useEffect } from 'react';
 import generateMessage, { Message } from './Api';
+import ClearButton from './ClearButton';
+import SnackbarMessage from './Snackbar';
 
 const App: React.FC<{}> = () => {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -18,13 +20,6 @@ const App: React.FC<{}> = () => {
     [messages]
   );
 
-  const handleRemove = (id: number) => {
-    const msgs = messages;
-    if (msgs.length > 0) {
-      setMessages(msgs.filter((msg) => msg.id !== id));
-    }
-  };
-
   const warningMessages = useMemo(
     () =>
       (messages || []).filter((msg) => msg.priority === 1),
@@ -37,38 +32,58 @@ const App: React.FC<{}> = () => {
     [messages]
   );
 
+  
+  const handleRemove = (id: number) => {
+    const msgs = messages;
+    if (msgs.length > 0) {
+      setMessages(msgs.filter((msg) => msg.id !== id));
+    }
+  };
+  
+  const clear = () => {
+    setMessages([])
+  }
+
   return (
-    <section className="container">
-      <div className="row">
-        <div className="col">
-          <ul className="list-group">
-            <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Error Type 1 <span>Count: {errorMessages.length}</span></li>
-            {errorMessages?.sort((a, b) => a > b ? 1:-1).map?.((msg) => <li key={msg?.message} className="error-list list-group-item d-flex justify-content-between align-items-center">
-              {msg?.message}  <button type="button" onClick={() => handleRemove(msg?.id)}>Clear</button>
-            </li>
-            )}
-          </ul>
+    <>
+      <header>
+        <ClearButton clear={clear} />
+      </header>
+      <section className="container">
+        <div className="row">
+          <div className="col">
+            <ul className="list-group">
+              <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Error Type 1 <span>Count: {errorMessages.length}</span></li>
+              {errorMessages?.sort((a, b) => a > b ? 1:-1).map?.((msg) => <li key={msg?.message} className="error-list list-group-item d-flex justify-content-between align-items-center">
+                {msg?.message} <button type="button" onClick={() => handleRemove(msg?.id)}>Clear</button>
+              </li>
+              )}
+            </ul>
+          </div>
+          <div className="col">
+            <ul className="list-group">
+              <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Warning Type 2 <span>Count: {warningMessages.length}</span></li>
+              {warningMessages?.sort((a, b) => a > b ? 1:-1).map?.(msg => <li key={msg?.message} className="warn-list list-group-item d-flex justify-content-between align-items-center">
+                {msg?.message} <button type="button" onClick={() => handleRemove(msg?.id)}>Clear</button>
+              </li>
+              )}
+            </ul>
+          </div>
+          <div className="col">
+            <ul className="list-group">
+              <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Info Type 3 <span>Count: {infoMessages.length}</span></li>
+              {infoMessages?.sort((a, b) => a > b ? 1:-1).map?.(msg => <li key={msg?.message} className="info-list list-group-item d-flex justify-content-between align-items-center">
+                {msg?.message} <button type="button" onClick={() => handleRemove(msg?.id)}>Clear</button>
+              </li>
+              )}
+            </ul>
+          </div>
         </div>
-        <div className="col">
-          <ul className="list-group">
-            <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Warning Type 2 <span>Count: {warningMessages.length}</span></li>
-            {warningMessages?.sort((a, b) => a > b ? 1:-1).map?.(msg => <li key={msg?.message} className="warn-list list-group-item d-flex justify-content-between align-items-center">
-              {msg?.message}
-            </li>
-            )}
-          </ul>
-        </div>
-        <div className="col">
-          <ul className="list-group">
-            <li className="list-group-item active bg-light text-muted fw-bold" aria-current="true">Info Type 3 <span>Count: {infoMessages.length}</span></li>
-            {infoMessages?.sort((a, b) => a > b ? 1:-1).map?.(msg => <li key={msg?.message} className="info-list list-group-item d-flex justify-content-between align-items-center">
-              {msg?.message}
-            </li>
-            )}
-          </ul>
-        </div>
-      </div>
-    </section> 
+        {
+        errorMessages && <SnackbarMessage message={errorMessages.map(({message}) => message )} />
+        }
+      </section> 
+    </>
   );
 }
 

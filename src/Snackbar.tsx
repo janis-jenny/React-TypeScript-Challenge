@@ -15,8 +15,6 @@ const SnackbarMessage: React.FC<IProps> = (props) => {
     setOpen(true)
   }, [message.join()])
 
-  console.log(message)
-
   const handleClose = (reason: string): ((event: React.SyntheticEvent<never, Event>) => void) | undefined => {
     if (reason === 'clickaway') {
       return;
@@ -26,7 +24,7 @@ const SnackbarMessage: React.FC<IProps> = (props) => {
 
   return (
     <div>
-      <Snackbar open={open} autoHideDuration={2000} onClose={() => handleClose("click")}>
+      <Snackbar open={open} autoHideDuration={2000} onClose={() => handleClose("click") }>
         <Alert onClose={() => handleClose("click")} severity="error" sx={{ width: '100%' }}>
           {message}
         </Alert>
