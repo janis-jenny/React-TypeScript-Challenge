@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
+/* eslint-disable no-debugger */
+import React, { useEffect, useState } from 'react';
 import { Snackbar } from '@material-ui/core';
 import Alert from '@mui/material/Alert/Alert';
 
-const SnackbarMessage: React.FC<{}> = ({message}) => {
-  const [open, setOpen] = useState(true);
+interface IProps {
+  message: string[];
+}
 
-  const handleClose = (reason: string) => {
+const SnackbarMessage: React.FC<IProps> = (props) => {
+  const { message } = props;
+  const [open, setOpen] = useState(true);
+  
+  useEffect(() => {
+    setOpen(true)
+  }, [message.join()])
+
+  console.log(message)
+
+  const handleClose = (reason: string): ((event: React.SyntheticEvent<never, Event>) => void) | undefined => {
     if (reason === 'clickaway') {
       return;
     }
@@ -14,11 +26,11 @@ const SnackbarMessage: React.FC<{}> = ({message}) => {
 
   return (
     <div>
-      <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
-      <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-        {message}
-      </Alert>
-    </Snackbar>
+      <Snackbar open={open} autoHideDuration={2000} onClose={() => handleClose("click")}>
+        <Alert onClose={() => handleClose("click")} severity="error" sx={{ width: '100%' }}>
+          {message}
+        </Alert>
+      </Snackbar>
     </div>
   )
 }
