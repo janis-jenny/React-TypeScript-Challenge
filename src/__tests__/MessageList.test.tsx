@@ -2,7 +2,6 @@ import renderer from 'react-test-renderer';
 import ClearButton from '../components/ClearButton';
 import PlayButton from '../components/ClearButton';
 
-
 describe('App', () => {
   it('renders correctly', () => {
     const tree = renderer.create(

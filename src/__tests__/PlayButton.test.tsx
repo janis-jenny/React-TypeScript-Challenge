@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import Stack from '@mui/material/Stack';
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Button from '@material-ui/core/Button';
 
 describe('PlayButton', () => {
@@ -20,4 +20,12 @@ test('1. PlayButton Rendering', () => {
   render(<Button type="button" />);
   buttons = document.getElementsByTagName('button');
   expect(buttons.length).toBe(1);
+});
+
+test('2. Handles onClick', () => {
+  const onClick = jest.fn();
+  render(<Button type="button" onClick={onClick}/>);
+  const btnElement = screen.getByRole('button');
+  fireEvent.click(btnElement);
+  expect(onClick).toHaveBeenCalledTimes(1);
 });

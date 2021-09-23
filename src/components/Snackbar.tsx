@@ -23,7 +23,7 @@ const SnackbarMessage: React.FC<IProps> = (props) => {
 
   return (
     <Snackbar open={open} autoHideDuration={2000} onClose={() => handleClose("click") }>
-      <Alert onClose={() => handleClose("click")} severity="error" sx={{ width: '100%' }}>
+      <Alert onClose={() => handleClose("click")} severity="error" sx={{ width: '100%' }} role="alert">
         {message}
       </Alert>
     </Snackbar>

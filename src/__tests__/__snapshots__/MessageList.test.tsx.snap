@@ -20,6 +20,7 @@ exports[`App renders correctly 1`] = `
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
     onTouchStart={[Function]}
+    role="button"
     tabIndex={0}
     type="button"
   >
@@ -48,6 +49,7 @@ exports[`App renders correctly 2`] = `
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
     onTouchStart={[Function]}
+    role="button"
     tabIndex={0}
     type="button"
   >
